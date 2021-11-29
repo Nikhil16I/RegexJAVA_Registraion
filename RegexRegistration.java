@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 public class RegexRegistration {
 
 	
-	public static  boolean ValidateFirstName(String firstName) {
+	public static  boolean UserAttributes(String firstName) {
 		String UserFirstName= "^[A-Z][a-z]{3,10}$";
 	
 		Pattern pattern =Pattern.compile(UserFirstName);
