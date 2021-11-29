@@ -7,11 +7,10 @@ public class MainClass {
 		RegexRegistration regex = new RegexRegistration();
 
 		Scanner name = new Scanner(System.in);
-		System.out.println("Add Country Code - Manadatory");
-		System.out.println("Input User's Phone Number  :- ");
+		System.out.println("Generate a Password of Minimum '8' Characters :- ");
 		
-		String MobNum = name.nextLine();
-		regex.UserAttributes(MobNum);
+		String password = name.nextLine();
+		regex.UserAttributes(password);
 		
 	}
 }
