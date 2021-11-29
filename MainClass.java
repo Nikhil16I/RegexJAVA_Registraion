@@ -7,10 +7,11 @@ public class MainClass {
 		RegexRegistration regex = new RegexRegistration();
 
 		Scanner name = new Scanner(System.in);
-		System.out.println("Input User Mail :- ");
+		System.out.println("Add Country Code - Manadatory");
+		System.out.println("Input User's Phone Number  :- ");
 		
-		String Mail = name.nextLine();
-		regex.UserAttributes(Mail);
+		String MobNum = name.nextLine();
+		regex.UserAttributes(MobNum);
 		
 	}
 }
