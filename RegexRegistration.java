@@ -11,7 +11,8 @@ public class RegexRegistration {
 	    String UserLastName="^[A-Z][a-z]{3,10}$";	    	    
 	    String UserEmail="^[a-z]+([.][a-z]+)@[a-z]+[.][a-z]+([.][a-z]+)$";
 	    String PhoneNumber="^[0-9]{2}[\\s][0-9]{10}";
-	    String Password="^[0-9A-Za-z]{8,}$";
+	    
+	    String Password="^(?=.*[A-Z])([0-9A-Za-z]){8,}$"; // Rule-2 Atleast one Uppercase in Password
 		Pattern pattern =Pattern.compile(Password);
 		Matcher matcher = pattern.matcher(password);
 		
