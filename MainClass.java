@@ -12,5 +12,5 @@ public class MainClass {
 		String password = name.nextLine();
 		regex.UserPassword(password);
 		
-     }
+      }
 }
