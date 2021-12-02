@@ -4,8 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class RegexRegistration {
-
-
+	
 	public static  boolean UserFirstName(String firstName) {
 		String FirstName= "^[A-Z][a-z]{3,10}$";
 	    
@@ -17,7 +16,7 @@ public class RegexRegistration {
 	}
 	public static  boolean UserLastName(String lastName) {
 	    String LastName="^[A-Z][a-z]{3,10}$";
-	    
+
 		Pattern pattern =Pattern.compile(LastName);
 		Matcher matcher = pattern.matcher(lastName);
 		
@@ -52,4 +51,6 @@ public class RegexRegistration {
 	System.out.println(matcher.matches());
 		return true;
     }  
+
 }
+
