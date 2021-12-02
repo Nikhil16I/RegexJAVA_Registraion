@@ -10,7 +10,7 @@ public class MainClass {
 		System.out.println("Generate a Password of Minimum '8' Characters :- ");
 		
 		String password = name.nextLine();
-		regex.UserAttributes(password);
+		regex.UserPassword(password);
 		
 	}
 }
