@@ -22,6 +22,15 @@ public class RegexRegistration {
 		
 	System.out.println(matcher.matches());
 		return true;
-   }
+	}
+	public static  boolean UserMailID(String email) {
+	    String Mail="^[A-Za-z0-9_-]+([.][A-Za-z0-9_-]+)@[A-Za-z]+[A-Za-z]+([.][A-Za-z]+)$";
+
+	  Pattern pattern =Pattern.compile(Mail);
+		Matcher matcher = pattern.matcher(email);
+		
+	System.out.println(matcher.matches());
+		return true;
+    }
 }
 
