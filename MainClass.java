@@ -10,7 +10,7 @@ public class MainClass {
 		System.out.println("Input First Name :- ");
 		
 		String firstname = name.nextLine();
-		regex.UserAttributes(firstname);
+		regex.UserFirstName(firstname);
 		
 	}
 }
