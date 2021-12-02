@@ -12,5 +12,5 @@ public class MainClass {
 		String email = name.nextLine();
 		regex.UserMailID(email);
 		
-	}
+     }
 }
