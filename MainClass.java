@@ -12,6 +12,5 @@ public class MainClass {
 		
 		String MobNum = name.nextLine();
 		regex.UserPhoneNumber(MobNum);
-		
-	}
+      }
 }
