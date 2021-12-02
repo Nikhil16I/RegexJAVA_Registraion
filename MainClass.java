@@ -9,8 +9,8 @@ public class MainClass {
 		Scanner name = new Scanner(System.in);
 		System.out.println("Input User Mail :- ");
 		
-		String Mail = name.nextLine();
-		regex.UserAttributes(Mail);
+		String email = name.nextLine();
+		regex.UserMailID(email);
 		
 	}
 }
