@@ -32,5 +32,15 @@ public class RegexRegistration {
 	System.out.println(matcher.matches());
 		return true;
      }
+
+	public static  boolean UserPhoneNumber(String MobNum) {
+	    String Phone="^[0-9]{2}[\\s][0-9]{10}";
+	    
+	  Pattern pattern =Pattern.compile(Phone);
+		Matcher matcher = pattern.matcher(MobNum);
+		
+	System.out.println(matcher.matches());
+		return true;
+    }
 }
 
