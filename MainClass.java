@@ -7,6 +7,7 @@ public class MainClass {
 		RegexRegistration regex = new RegexRegistration();
 
 		Scanner name = new Scanner(System.in);
+		System.out.println("Use Atleast one Uppercase- Mandatory");
 		System.out.println("Generate a Password of Minimum '8' Characters :-  ");
 		
 		String password = name.nextLine();

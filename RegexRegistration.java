@@ -43,13 +43,13 @@ public class RegexRegistration {
 		return true;
      }
 	public static  boolean UserPassword(String password) {
-	    String Password="^[0-9A-Za-z]{8,}$";
+	    String Password="^(?=.*[A-Z])([0-9A-Za-z]){8,}$"; // Rule-2 Atleast one Uppercase in Password
 	    
-		Pattern pattern =Pattern.compile(Password);
-		Matcher matcher = pattern.matcher(password);
-		
+		Pattern pattern =Pattern.compile(FirstName);
+		Matcher matcher = pattern.matcher(firstName);
+    
 	System.out.println(matcher.matches());
 		return true;
-    }
+    }    
 }
 
