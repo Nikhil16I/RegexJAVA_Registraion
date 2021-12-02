@@ -4,7 +4,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class RegexRegistration {
-
 	
 	public static  boolean UserFirstName(String firstName) {
 		String FirstName= "^[A-Z][a-z]{3,10}$";
@@ -27,10 +26,11 @@ public class RegexRegistration {
 	public static  boolean UserMailID(String email) {
 	    String Mail="^[A-Za-z0-9_-]+([.][A-Za-z0-9_-]+)@[A-Za-z]+[A-Za-z]+([.][A-Za-z]+)$";
 
-	    Pattern pattern =Pattern.compile(Mail);
+	  Pattern pattern =Pattern.compile(Mail);
 		Matcher matcher = pattern.matcher(email);
 		
 	System.out.println(matcher.matches());
 		return true;
     }
 }
+
