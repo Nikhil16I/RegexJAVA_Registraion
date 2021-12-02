@@ -16,7 +16,7 @@ public class RegexRegistration {
 	}
 	public static  boolean UserLastName(String lastName) {
 	    String LastName="^[A-Z][a-z]{3,10}$";
-	    
+
 		Pattern pattern =Pattern.compile(LastName);
 		Matcher matcher = pattern.matcher(lastName);
 		
@@ -43,13 +43,14 @@ public class RegexRegistration {
 		return true;
      }
 	public static  boolean UserPassword(String password) {
-	    String Password="^(?=.*[A-Z])([0-9A-Za-z]){8,}$"; // Rule-2 Atleast one Uppercase in Password
+		   String Password="^(?=.*[0-9])(?=.*[A-Z])([0-9A-Za-z]){8,}$"; // Rule-3 Atleast one Numeric Number in Password
 	    
-		Pattern pattern =Pattern.compile(FirstName);
-		Matcher matcher = pattern.matcher(firstName);
+		Pattern pattern =Pattern.compile(Password);
+		Matcher matcher = pattern.matcher(password);
     
 	System.out.println(matcher.matches());
 		return true;
-    }    
+    }  
+
 }
 
