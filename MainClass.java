@@ -7,7 +7,7 @@ public class MainClass {
 		RegexRegistration regex = new RegexRegistration();
 
 		Scanner name = new Scanner(System.in);
-		System.out.println("Generate a Password of Minimum '8' Characters :- ");
+		System.out.println("Generate a Password of Minimum '8' Characters :-  ");
 		
 		String password = name.nextLine();
 		regex.UserPassword(password);
