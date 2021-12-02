@@ -24,7 +24,7 @@ public class RegexRegistration {
 		return true;
 	}
 	public static  boolean UserMailID(String email) {
-	    String Mail="^[A-Za-z0-9_-]+([.][A-Za-z0-9_-]+)@[A-Za-z]+[A-Za-z]+([.][A-Za-z]+)$";
+	    String Mail="^[A-Za-z0-9-]+(.[A-Za-z0-9-]+)*@[^_\\W]+(.[^_\\W]+)?(?=(.[^_\\W]{3,}$|.[a-zA-Z]{2}$)).*$";//UC-09 For Sample Emails
 
 	  Pattern pattern =Pattern.compile(Mail);
 		Matcher matcher = pattern.matcher(email);
@@ -50,6 +50,7 @@ public class RegexRegistration {
     
 	System.out.println(matcher.matches());
 		return true;
-    } 
+    }  
+  
 }
 
