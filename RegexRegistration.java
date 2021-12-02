@@ -43,8 +43,8 @@ public class RegexRegistration {
 		return true;
      }
 	public static  boolean UserPassword(String password) {
-		   String Password="^(?=.*[0-9])(?=.*[A-Z])([0-9A-Za-z]){8,}$"; // Rule-3 Atleast one Numeric Number in Password
-	    
+	    String Password="^(?=.*[0-9])(?=.*[!@#$%&^_()+}{?>:<]){1}+(?=.*[A-Z])([0-9A-Za-z]).{8,}$"; // Rule-4 At least one Special Character Number in Password
+
 		Pattern pattern =Pattern.compile(Password);
 		Matcher matcher = pattern.matcher(password);
     
