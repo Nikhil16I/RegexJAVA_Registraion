@@ -7,9 +7,10 @@ public class MainClass {
 		RegexRegistration regex = new RegexRegistration();
 
 		Scanner name = new Scanner(System.in);
-		System.out.println("Input First Name :- ");
+		System.out.println("Input Last Name :- ");
 		
-		String firstname = name.nextLine();
-		regex.UserFirstName(firstname);	
+		String lastName = name.nextLine();
+		regex.UserLastName(lastName);
+		
 	}
 }
