@@ -4,7 +4,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class RegexRegistration {
-
 	
 	public static  boolean UserFirstName(String firstName) {
 		String FirstName= "^[A-Z][a-z]{3,10}$";
@@ -45,11 +44,13 @@ public class RegexRegistration {
      }
 	public static  boolean UserPassword(String password) {
 	    String Password="^(?=.*[0-9])(?=.*[!@#$%&^_()+}{?>:<]){1}+(?=.*[A-Z])([0-9A-Za-z]).{8,}$"; // Rule-4 At least one Special Character Number in Password
-	    
+
 		Pattern pattern =Pattern.compile(Password);
 		Matcher matcher = pattern.matcher(password);
     
 	System.out.println(matcher.matches());
 		return true;
     }  
+  
 }
+
