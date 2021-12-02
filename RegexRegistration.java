@@ -4,7 +4,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class RegexRegistration {
-
 	
 	public static  boolean UserFirstName(String firstName) {
 		String FirstName= "^[A-Z][a-z]{3,10}$";
@@ -46,10 +45,11 @@ public class RegexRegistration {
 	public static  boolean UserPassword(String password) {
 	    String Password="^(?=.*[A-Z])([0-9A-Za-z]){8,}$"; // Rule-2 Atleast one Uppercase in Password
 	    
-		Pattern pattern =Pattern.compile(Password);
-		Matcher matcher = pattern.matcher(password);
-		
+		Pattern pattern =Pattern.compile(FirstName);
+		Matcher matcher = pattern.matcher(firstName);
+    
 	System.out.println(matcher.matches());
 		return true;
-    }
+	}    
 }
+
