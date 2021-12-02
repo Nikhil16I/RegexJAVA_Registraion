@@ -11,7 +11,7 @@ public class MainClass {
 		System.out.println("Input User's Phone Number  :- ");
 		
 		String MobNum = name.nextLine();
-		regex.UserAttributes(MobNum);
+		regex.UserPhoneNumber(MobNum);
 		
 	}
 }
