@@ -2,12 +2,29 @@ package JunitTest;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Arrays;
+import java.util.Collection;
+
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
 
-import RegexJAVA.RegexRegistration;
+import RegexRegistraion.RegexRegistration;
 
+@RunWith(Parameterized.class)
 public class TestClass {
 
+
+	String Input;
+	boolean ExpectedResult;
+	RegexRegistration validation;
+	
+	public TestClass(String input, boolean ExpectedResult) {
+		super();
+		this.Input = Input;
+		this.ExpectedResult = ExpectedResult;
+	}
 	@Test
 	public void FirstName_Valid() {
 		RegexRegistration Validate = new RegexRegistration();
@@ -32,18 +49,45 @@ public class TestClass {
 		boolean output= Validate.UserLastName("patil");
 		assertEquals(false, output);
 	}
-	@Test
-	public void Email_Valid() {
-		RegexRegistration Validate = new RegexRegistration();
-		boolean output= Validate.UserMailID("Google@gmail.com");
-		assertEquals(true, output);
+	@Parameters(name="Input()")
+	public static Collection inputs() {
+		return (Collection) Arrays.asList(new Object[][] {
+			{"abc@yahoo.com", true},
+			{"abc-100@yahoo.com", true},
+			{"abc.100@yahoo.com", true},
+			{"abc111@abc.com", true},
+			{"abc-100@abc.net", true},
+			{"abc.100@abc.com.au", true},
+			{"abc@1.com", true},
+			{"abc@gmail.com.com", true},
+			{"abc+100@gmail.com", true},
+			{"abc@.com.com" , false},
+			{"abc123@gmail.a" , false},
+			{"abc123@.com" , false},
+			{"abc123@.com.com" , false},
+			{".abc@abc.com" , false},
+			{"abc()*@gmail.com" , false},
+			{"abc@%*.com" , false},
+			{"abc..2002@gmail.com" , false},
+			{"abc.@gmail.com" , false},
+			{"abc@abc@gmail.com" , false},
+			{"abc@gmail.com.1a" , false},
+			{"abc@gmail.com.aa.au^$" , false}
+			} );
 	}
+	@Test
+	public void testEmail() {
+		RegexRegistration Validate = new RegexRegistration();
+		boolean output = Validate.UserMailID(Input);
+		assertEquals(ExpectedResult,output);
+	}
+	/*
 	@Test
 	public void Email_InValid() {
 		RegexRegistration Validate = new RegexRegistration();
 		boolean output= Validate.UserMailID("Googlegmail.com");
 		assertEquals(false, output);
-	}
+	}*/
 	@Test
 	public void PhoneNum_Valid() {
 		RegexRegistration Validate = new RegexRegistration();
@@ -68,6 +112,4 @@ public class TestClass {
 		boolean output= Validate.UserPassword("Poke@1");
 		assertEquals(false, output);
 	}
-	
-	
 }
