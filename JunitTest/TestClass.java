@@ -5,51 +5,63 @@ import static org.junit.Assert.assertEquals;
 import java.util.Arrays;
 import java.util.Collection;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
+import RegexRegistraion.RegexException;
 import RegexRegistraion.RegexRegistration;
 
-@RunWith(Parameterized.class)
+//@RunWith(Parameterized.class)
 public class TestClass {
 
-
-	String Input;
+	/*String Input;
 	boolean ExpectedResult;
 	RegexRegistration validation;
 	
 	public TestClass(String input, boolean ExpectedResult) {
 		super();
 		this.Input = Input;
-		this.ExpectedResult = ExpectedResult;
-	}
+		this.ExpectedResult = ExpectedResult;*/
+	
+	private RegexRegistration TestException;
+		@Before
+		public void  ExceptionObj() {
+			TestException= new RegexRegistration();
+		}
+	
 	@Test
-	public void FirstName_Valid() {
-		RegexRegistration Validate = new RegexRegistration();
-		boolean output= Validate.UserFirstName("Nikhil");
+	public void FirstName_Valid() throws RegexException {
+		boolean output= TestException.UserFirstName("Nikhil");
 		assertEquals(true, output);
 	}	
 	@Test
-	public void FirstName_InValid() {
-		RegexRegistration Validate = new RegexRegistration();
-		boolean output= Validate.UserFirstName("nikhil");
-		assertEquals(false, output);
+	public void FirstName_InValid() throws RegexException {
+		try {
+			boolean output = TestException.UserFirstName("nikhil");
+			assertEquals(false, output);			
+		} catch (RegexException re) {
+			re.printStackTrace();
+		}
 	}
 	@Test
-	public void LastName_Valid() {
-		RegexRegistration Validate = new RegexRegistration();
-		boolean output= Validate.UserLastName("Patil");
+	public void LastName_Valid() throws RegexException {
+		boolean output= TestException.UserLastName("Patil");
 		assertEquals(true, output);
 	}
 	@Test
-	public void LastName_InValid() {
-		RegexRegistration Validate = new RegexRegistration();
-		boolean output= Validate.UserLastName("patil");
+	public void LastName_InValid() throws RegexException {
+		try {
+		boolean output= TestException.UserLastName("patil");
 		assertEquals(false, output);
+	   }catch(RegexException re) {
+		   re.printStackTrace();
+	   }
 	}
-	@Parameters(name="Input()")
+
+/*	@Parameters(name="Input()")
 	public static Collection inputs() {
 		return (Collection) Arrays.asList(new Object[][] {
 			{"abc@yahoo.com", true},
@@ -74,42 +86,48 @@ public class TestClass {
 			{"abc@gmail.com.1a" , false},
 			{"abc@gmail.com.aa.au^$" , false}
 			} );
-	}
-	@Test
-	public void testEmail() {
-		RegexRegistration Validate = new RegexRegistration();
-		boolean output = Validate.UserMailID(Input);
-		assertEquals(ExpectedResult,output);
-	}
-	/*
-	@Test
-	public void Email_InValid() {
-		RegexRegistration Validate = new RegexRegistration();
-		boolean output= Validate.UserMailID("Googlegmail.com");
-		assertEquals(false, output);
 	}*/
 	@Test
-	public void PhoneNum_Valid() {
-		RegexRegistration Validate = new RegexRegistration();
-		boolean output= Validate.UserPhoneNumber("91 1234567890");
+	public void testEmail() throws RegexException {
+		boolean output = TestException.UserMailID("Google123@gmail.com");
+		assertEquals(true,output);
+	}
+	
+	@Test
+	public void Email_InValid() {
+		try {
+	        boolean output= TestException.UserMailID("Googlegmail.com");
+		assertEquals(false, output);
+	   }catch (RegexException re) {
+		   re.printStackTrace();
+	   }
+	}
+	@Test
+	public void PhoneNum_Valid() throws RegexException {
+		boolean output= TestException.UserPhoneNumber("91 1234567890");
 		assertEquals(true, output);
 	}
 	@Test
-	public void PhoneNum_InValid() {
-		RegexRegistration Validate = new RegexRegistration();
-		boolean output= Validate.UserPhoneNumber("91 12345678");
+	public void PhoneNum_InValid() throws RegexException {
+		try {
+		boolean output= TestException.UserPhoneNumber("91 12345678");
 		assertEquals(false, output);
-	}
+	 }catch (RegexException re) {
+		 re.printStackTrace();
+	 }
+  }
 	@Test
-	public void Password_Valid() {
-		RegexRegistration Validate = new RegexRegistration();
-		boolean output= Validate.UserPassword("passWord@127");
+	public void Password_Valid() throws RegexException {
+		boolean output= TestException.UserPassword("passWord@127");
 		assertEquals(true, output);
 	}
 	@Test
-	public void Password_InValid() {
-		RegexRegistration Validate = new RegexRegistration();
-		boolean output= Validate.UserPassword("Poke@1");
+	public void Password_InValid() throws RegexException {
+		try {
+		boolean output= TestException.UserPassword("Poke@1");
 		assertEquals(false, output);
+	}catch(RegexException re) {
+		re.printStackTrace();
 	}
+  }
 }
