@@ -3,9 +3,16 @@ package RegexRegistraion;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import Interfaces.EmailValidationInterface;
+import Interfaces.FirstNameValidationInterface;
+import Interfaces.LastNameValidationInterface;
+import Interfaces.PasswordValidationInterface;
+import Interfaces.UserPhoneNumberInterface;
+
 public class RegexRegistration {
 	
-	public static  boolean UserFirstName(String firstName)throws RegexException {
+	public static FirstNameValidationInterface firstNameValidationInterface =(String firstName)->{
+		
 		String FirstName= "^[A-Z][a-z]{3,10}$";
 	    
 		Pattern pattern =Pattern.compile(FirstName);
@@ -17,8 +24,8 @@ public class RegexRegistration {
 	else {
 		throw new RegexException("Invlaid Name Please input Valid Nmae"+RegexException.ExpectedType.NAME);
 	  }
-	}
-	public static  boolean UserLastName(String lastName) throws RegexException {
+	};
+	public LastNameValidationInterface lastNameValidationInterface = (String lastName)->{
 	    String LastName="^[A-Z][a-z]{3,10}$";
 
 		Pattern pattern =Pattern.compile(LastName);
@@ -30,8 +37,8 @@ public class RegexRegistration {
 		else {
 			throw new RegexException("Invalid Last Name please Input Valid Last Name"+RegexException.ExpectedType.LASTNAME);
 		  }
-	}
-	public static  boolean UserMailID(String email) throws RegexException {
+	};
+	public EmailValidationInterface emailValidationInterface =(String email)->{
 	    String Mail="^[A-Za-z0-9-]+(.[A-Za-z0-9-]+)*@[^_\\W]+(.[^_\\W]+)?(?=(.[^_\\W]{3,}$|.[a-zA-Z]{2}$)).*$";//UC-09 For Sample Emails
 
 	  Pattern pattern =Pattern.compile(Mail);
@@ -43,9 +50,9 @@ public class RegexRegistration {
 		else {
 			throw new RegexException("Inavlid MailId please Input Valid MailId"+RegexException.ExpectedType.EMAIL);
 		  }
-     }
+     };
 
-	public static  boolean UserPhoneNumber(String MobNum) throws RegexException {
+	public UserPhoneNumberInterface numberInterface =(String MobNum)->{
 	    String Phone="^[0-9]{2}[\\s][0-9]{10}";
 	    
 	  Pattern pattern =Pattern.compile(Phone);
@@ -57,8 +64,8 @@ public class RegexRegistration {
 		else {
 			throw new RegexException("Invalid PhoneNumber Please Input Valid PhoneNumber"+RegexException.ExpectedType.MOBILENUMBER);
 		  }
-     }
-	public static  boolean UserPassword(String password) throws RegexException {
+     };
+	public PasswordValidationInterface passwordValidationInterface=(String password)->{
 	    String Password="^(?=.*[0-9])(?=.*[!@#$%&^_()+}{?>:<]){1}+(?=.*[A-Z])([0-9A-Za-z]).{8,}$"; // Rule-4 At least one Special Character Number in Password
 
 		Pattern pattern =Pattern.compile(Password);
@@ -71,6 +78,6 @@ public class RegexRegistration {
 			throw new RegexException("Password is Invalid Input Valid Password"+RegexException.ExpectedType.PASSWORD);
 		
 		  }
-    }  
+    };  
 }
 

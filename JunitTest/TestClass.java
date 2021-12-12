@@ -34,13 +34,13 @@ public class TestClass {
 	
 	@Test
 	public void FirstName_Valid() throws RegexException {
-		boolean output= TestException.UserFirstName("Nikhil");
+		boolean output= TestException.firstNameValidationInterface.UserFirstName("Nikhil");
 		assertEquals(true, output);
 	}	
 	@Test
 	public void FirstName_InValid() throws RegexException {
 		try {
-			boolean output = TestException.UserFirstName("nikhil");
+			boolean output = TestException.firstNameValidationInterface.UserFirstName("nikhil");
 			assertEquals(false, output);			
 		} catch (RegexException re) {
 			re.printStackTrace();
@@ -48,13 +48,13 @@ public class TestClass {
 	}
 	@Test
 	public void LastName_Valid() throws RegexException {
-		boolean output= TestException.UserLastName("Patil");
+		boolean output= TestException.lastNameValidationInterface.UserLastName("Patil");
 		assertEquals(true, output);
 	}
 	@Test
 	public void LastName_InValid() throws RegexException {
 		try {
-		boolean output= TestException.UserLastName("patil");
+		boolean output= TestException.lastNameValidationInterface.UserLastName("patil");
 		assertEquals(false, output);
 	   }catch(RegexException re) {
 		   re.printStackTrace();
@@ -89,14 +89,14 @@ public class TestClass {
 	}*/
 	@Test
 	public void testEmail() throws RegexException {
-		boolean output = TestException.UserMailID("Google123@gmail.com");
+		boolean output = TestException.emailValidationInterface.UserMailID("Google123@gmail.com");
 		assertEquals(true,output);
 	}
 	
 	@Test
 	public void Email_InValid() {
 		try {
-	        boolean output= TestException.UserMailID("Googlegmail.com");
+	        boolean output= TestException.emailValidationInterface.UserMailID("Googlegmail.com");
 		assertEquals(false, output);
 	   }catch (RegexException re) {
 		   re.printStackTrace();
@@ -104,13 +104,13 @@ public class TestClass {
 	}
 	@Test
 	public void PhoneNum_Valid() throws RegexException {
-		boolean output= TestException.UserPhoneNumber("91 1234567890");
+		boolean output= TestException.numberInterface.UserPhoneNumber("91 1234567890");
 		assertEquals(true, output);
 	}
 	@Test
 	public void PhoneNum_InValid() throws RegexException {
 		try {
-		boolean output= TestException.UserPhoneNumber("91 12345678");
+		boolean output= TestException.numberInterface.UserPhoneNumber("91 12345678");
 		assertEquals(false, output);
 	 }catch (RegexException re) {
 		 re.printStackTrace();
@@ -118,13 +118,13 @@ public class TestClass {
   }
 	@Test
 	public void Password_Valid() throws RegexException {
-		boolean output= TestException.UserPassword("passWord@127");
+		boolean output= TestException.passwordValidationInterface.UserPassword("passWord@127");
 		assertEquals(true, output);
 	}
 	@Test
 	public void Password_InValid() throws RegexException {
 		try {
-		boolean output= TestException.UserPassword("Poke@1");
+		boolean output= TestException.passwordValidationInterface.UserPassword("Poke@1");
 		assertEquals(false, output);
 	}catch(RegexException re) {
 		re.printStackTrace();
